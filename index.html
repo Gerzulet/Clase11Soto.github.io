@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 11: Segunda Pre-Entrega </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    
+
+</head>
+<body>
+   
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container" id="navegador">
+            
+            <a href="#" class="navbar-brand text-warning " id="nombre">German Soto</a>
+           
+            `<ul class="navbar-nav ms-auto">
+    
+                <li class="nav-item mx-5">
+                    <a href="#offcanvasScrolling" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar" class="nav-link" id="carrito"></a>
+                </li>
+                </ul>`
+              
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-dark text-light p-5 text-center " id="hero">
+        <div class="container mx-5">
+            <div class="d-sm-flex" id="box">
+                <div class="px-5 w-100" id="contenedor" >
+                    <h1>Segunda Entrega del <br> <span class="text-warning">Proyecto Final</span></h1>
+                    
+                        <button id="boton" class="btn btn-primary btn-lg my-5">¡Ponme a prueba!</button>
+                </div>
+                
+                
+                    
+            </div>
+            
+        
+        </div>
+        </section>
+            
+        
+        </div>
+        </section>
+
+        <section class="p-5" id="contenedorCartas">
+            <div class="container" id="metadatos" >
+                <div class="row g-4">
+                    <div id="countdown" class="cod-md">
+                        <h4 class="text-center mb-1">Tiempo hasta entrega de proyecto final</h4>
+                        <h2 id="reloj" class="text-center text-warning"></h2>
+                        <ul class="list-group list-group-flush lead">
+                            <li class="list-group-item">
+                                <span class="fw-bold">Curso: </span> Javascript 
+                            </li>
+                            <li class="list-group-item">
+                                <span class="fw-bold">Comision: </span> 37540
+                            </li>
+                            <li class="list-group-item">
+                                <span class="fw-bold">Temas abordados: </span> JSON, Storage, Event Handlers, Manipulacion de DOM.
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="offcanvas offcanvas-start " data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" >
+            <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Estos son los cursos que has elegido!</h5>
+           
+            
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body" id="offcanvas-body">
+
+                <div id="costoTotal"></div>
+                
+        </div>
+        </div>
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Carrito de compras</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Genial! Has agregado un curso a tu carro!
+              </div>
+            </div>
+          </div>
+
+          <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast-eliminar" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Carrito de compras</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Acabas de remover un curso de tu carro!
+              </div>
+            </div>
+          </div>
+
+          <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast-repetido" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Carrito de compras</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Solo puedes elegir un curso a la vez!
+              </div>
+            </div>
+          </div>
+          
+
+        <footer class="p-5 bg-dark text-white text-center position-relative">
+            <div class="container">
+                <p class="lead">CODERHOUSE &copy 2022 Cursos Javascript</p>
+                <a href="#" class="position-absolute bottom-0 end-0 p-5">
+                    <i class="bi bi-arrow-up-circle h1" ></i>
+                </a>
+            </div>
+        </footer>
+    
+        <script src="./db.js"></script>
+        <script src="./main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+
+</body>
+</html>
