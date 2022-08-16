@@ -16,6 +16,8 @@
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
 }
 .form__field::-moz-placeholder {
   color: transparent;
@@ -49,14 +51,13 @@
   transition: 0.2s;
   font-size: 1rem;
   color: #9b9b9b;
+  text-align: center;
 }
 
 .form__field:focus {
   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
-  -o-border-image: linear-gradient(to right, #11998e, #38ef7d);
-     border-image: linear-gradient(to right, #11998e, #38ef7d);
   border-image-slice: 1;
 }
 .form__field:focus ~ .form__label {
@@ -65,7 +66,7 @@
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: #11998e;
+  color: #fff;
   font-weight: 700;
 }
 
@@ -76,12 +77,136 @@
 
 /* demo */
 body {
-  font-family: "Poppins", sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-size: 1.5rem;
-  background-color: #222222;
+  font-family: "Courier New", Courier, monospace;
+  background-color: black;
+}
+
+#inputLog {
+  font-family: "Courier New", Courier, monospace;
+}
+
+#bienvenida {
+  -webkit-animation: fadeinout 6s linear forwards;
+  animation: fadeinout 6s linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes fadeinout {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.titulo {
+  border-color: white;
+  margin: 10px;
+}
+
+.resumen {
+  height: 30em;
+}
+
+#filtro {
+  height: 23px;
+}
+
+#logout {
+  height: 45px;
+  padding-left: 15px;
+}
+
+.bar {
+  border: none;
+  height: 30px;
+}
+
+.cat {
+  margin-top: 30px;
+  height: 63px;
+}
+
+.bandera {
+  height: 24px;
+}
+
+.titulo {
+  overflow: hidden;
+  border-right: 0.15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  -webkit-animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+          animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  color: white;
+}
+
+@-webkit-keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@-webkit-keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+#pagPrincipal {
+  -webkit-animation: fade-in 3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in 3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+#offcanvasBottom {
+  background-color: black;
+  border-color: white;
+  font-family: "Courier New", Courier, monospace;
+  height: 400px;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }/*# sourceMappingURL=style.css.map */
