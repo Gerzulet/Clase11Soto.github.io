@@ -194,6 +194,13 @@ body {
   height: 400px;
 }
 
+#offcanvasTop {
+  background-color: black;
+  border-color: white;
+  font-family: "Courier New", Courier, monospace;
+  height: 200px;
+}
+
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;

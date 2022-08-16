@@ -159,6 +159,7 @@ body {
 	        animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
+
 #offcanvasBottom {
   background-color: black;
   border-color: white;
@@ -166,6 +167,15 @@ body {
   height: 400px;
   
 }
+
+#offcanvasTop {
+  background-color: black;
+  border-color: white;
+  font-family:'Courier New', Courier, monospace; 
+  height: 200px;
+  
+}
+
 
 
 

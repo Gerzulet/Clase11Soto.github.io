@@ -15,7 +15,7 @@ class notes {
   }
 }
 
-log();
+/* log();
 
 function log (){
   
@@ -28,14 +28,14 @@ function log (){
 
   
 
-}
+} */
 
 
 
 
-function validarInput(){ 
-  const nombre = document.getElementById("nombre");  
-  nombre.value.length <= 1 ? style.innerHTML+=inputInvalido: validarInputLS(nombre.value);
+/* function validarInput(){ 
+  const nombre = document.getElementById("nombre").value;  
+  nombre.length <= 2 ? style.innerHTML+=inputInvalido : main(nombre);
   setTimeout(() => {
     style.innerHTML=`body {
       display: flex;
@@ -47,14 +47,11 @@ function validarInput(){
     }`;
   }, 900);
 
+  
 
-}
 
-function validarInputLS(nombre){
-  var claves = Object.keys(localStorage); 
-  claves.some((key)=> key == nombre) ? main(nombre) : localStorage.setItem(nombre, []), main(nombre);
+} */
 
-} 
 
 function main(nombre){
   style.innerHTML+=loginDesvanecer;
@@ -66,7 +63,7 @@ function main(nombre){
       }
     }, 600);
     
-    setTimeout(() => {
+   // setTimeout(() => {
       style.innerHTML = "";
       body.innerHTML= pagPrincipal;
       const title = document.getElementById("title");
@@ -75,7 +72,7 @@ function main(nombre){
        setInterval(() => {
       title.innerHTML = `  <h2 class="titulo my-4">${mensajesAleatorio(nombre)}</h2>`
         
-      }, 9000); 
+      //}, 9000); 
       
     
   }, 7000);
@@ -83,6 +80,7 @@ function main(nombre){
   
 }
 
+main();
 
 /* TENEMOS QUE TENER EN MEMORIA UN USUARIO INVITADO ok
 SI EL USUARIO INGRESA UNA SOLO LETRA INVALIDAR INPUT ok
@@ -92,7 +90,7 @@ CUANDO EL USUARIO INGRESA UN VALOR CORRECTO CARGAR A LOCALSTORAGE ok
 */
 
 function mensajesAleatorio(nombre){
-  const array = [`Hola ${nombre}, almacenaré tus notas aca.`, `${nombre},no olvides más!`, `Notas`,`Hola, como estas? Dejame ayudarte.`, `No olvides darle al boton de play abajo.`]; 
+  const array = [`Hola ${nombre}, almacenaré tus notas aca.`, `${nombre},no olvides más!`, `Notas`,`Hola, como estas? Dejame ayudarte.`, `No olvides darle al boton de play abajo.`, `Veras notas de varios usuarios aca abajo`]; 
   const randomIndex = Math.floor(Math.random() * array.length);
   const item = array[randomIndex];
 

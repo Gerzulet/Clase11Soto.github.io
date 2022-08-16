@@ -1,7 +1,13 @@
 // DATABASE
 
 let animacionesDB = `
-
+#offcanvasTop{
+  background-color: black;
+  border-color: white;
+  font-family:'Courier New', Courier, monospace; 
+  height: 400px;
+  
+}
 
 body {
   display: flex;
@@ -146,25 +152,31 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
       <div class="col-3  mx-5 text-light">
         Nombre
       </div>
-      <div class="col-3  mx-4 text-light">
+      <div class="col-2  mx-4 text-light">
         Fecha
+      </div>
+      <div class="col-1  mx-2 text-light">
+        Usuario
       </div>
       <div class="col-2  mx-4 text-light">
         Importancia
       </div>
-      <div class="col-1  mx-4 text-light">
+      <div class="col-1   text-light">
         Flag
       </div>
 
 
       <div id="notas" class="row my-3 overflow-auto">
-        <div class="col-3  mx-5 text-light">
-         Clase de algebra
-        </div>
-        <div class="col-3 mx-4 text-light">
+      
+      <a class="col-3 mx-5 text-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Clase de algebra</a>  
+      
+        <div class="col-2 mx-4 text-light">
           24/08/22
         </div>
-        <div class="col-2  mx-4 text-light text-center">
+        <div class="col-1 mx-4 text-light">
+          German
+        </div>
+        <div class="col-2  text-light text-center">
           Alta
         </div>
         <div class="col-1  mx-4 text-light text-center">
@@ -177,7 +189,7 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
     
     
   
-  </div>
+  </div >
   <div class="col-1 border border-light mx-4 fixed-right ">
     <div class="col text-center my-5">
     <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><img class="bar" src="./Images/plus.svg" alt="Add"></a>
@@ -199,6 +211,29 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
   </div>
  
 </div>
+
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasTopLabel">El nombre del titulo
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+    <img class="bar mx-3" src="./Images/pen-fill.svg" alt="">
+    </button></h5>
+    
+
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row">
+      <div class="col"> 
+        <div class="row text-light m-3">Usuario</div> 
+        <div class="row text-light m-3">Importancia</div> 
+      </div>
+      <div class="col text-light text-center"> Form field </div>
+    </div>
+  </div>
+</div>
+
+
 
 
 <div class="offcanvas offcanvas-bottom text-center" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
@@ -237,6 +272,8 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
  
 </div>
 
-  
+
+
+
 
 `
