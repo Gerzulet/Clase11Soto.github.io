@@ -162,14 +162,14 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
         Importancia
       </div>
       <div class="col-1   text-light">
-        Flag
+        
       </div>
 
 
       <div id="notas" class="row my-3 overflow-auto">
       
       <a class="col-3 mx-5 text-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Clase de algebra</a>  
-      
+
         <div class="col-2 mx-4 text-light">
           24/08/22
         </div>
@@ -180,7 +180,7 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
           Alta
         </div>
         <div class="col-1  mx-4 text-light text-center">
-          <a  href="#"><img class="bandera" src="./Images/flag.svg" alt=""></a>
+          <a  href="#"><img class="bandera" src="./Images/trash.svg" alt=""></a>
         </div>
       </div>
      
@@ -239,31 +239,36 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
 <div class="offcanvas offcanvas-bottom text-center" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title text-light " id="offcanvasBottomLabel"> 
+    
     <button  type="button" class="btn-close mx-2" data-bs-dismiss="offcanvas" aria-label="Close">
-    <img class="bar" src="./Images/add.svg" alt="">
+    
+    <img class="bar" onclick="agregarNotas()" src="./Images/add.svg" alt="">
     </button></h5>
+    
     <button  type="button" class="btn-close mx-2" data-bs-dismiss="offcanvas" aria-label="Close">
     <img class="bar " src="./Images/trash.svg" alt="">
+    
+    
     </button>
   </div>
   <div id="offcanvasBody" class="offcanvas-body small">
-  <div class="row my-2">
-    <div  class="form__group field col mx-1">
-      <input type="input" class="form__field" placeholder="Titulo" name="name" id="tituloNota" required />
-      <label for="name" class="form__label">Titulo</label>
-  </div> 
+    <div class="row my-2">
+      <div  class="form__group field col mx-1">
+        <input maxlength="16" type="input" class="form__field" placeholder="Titulo" name="name" id="tituloNota" required />
+        <label for="name" class="form__label">Titulo</label>
+    </div> 
   <div class="form__group field row mx-1">
-        <select class="form__field" id="validationDefault04" required>
+        <select class="form__field" id="importanciaNota" required>
           <option selected disabled value="">Importancia</option>
           <option>Alta</option>
-          <option>Media</option>
+          <option>Normal</option>
           <option>Baja</option>
           </select>
   </div>
   
 
     <div class="mb-3">
-  <textarea  class="form__field" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <textarea  maxlength="100" class="form__field" id="notaTextArea" rows="3"></textarea>
   </div>
   </div>
 </div>

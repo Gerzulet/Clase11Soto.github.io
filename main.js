@@ -2,38 +2,41 @@ const style = document.createElement("style");
 const body = document.getElementsByTagName("body")[0];
 style.innerHTML = `${animacionesDB} `; 
 document.head.appendChild(style);
+const notas  = [];
 
 
 
-class notes {
-  constructor(nombre,fecha,importancia,flag) {
+class note {
+  constructor(nombre,usuario,fecha,importancia,flag,info) {
     this.nombre = nombre;
+    this.usuario = usuario;
     this.fecha = fecha;
     this.importancia = importancia;
     this.flag = flag;
+    this.info = info;
     
   }
 }
 
-/* log();
+log();
 
 function log (){
   
   body.innerHTML=`  <div id="inputLog" class="inputUsuario form__group field">
-  <input type="input" class="form__field" placeholder="Usuario" name="name" id="nombre" required />
+  <input maxlength="10" type="input" class="form__field" placeholder="Usuario" name="name" id="nombre" required />
   <label for="name" class="form__label">Usuario</label>
   </div> 
-  <button  onclick="validarInput()" type="button" class="inputUsuario my-4 btn btn-outline-light">Entrar</button>
+  <button  onclick="nombreInput()" type="button" class="inputUsuario my-4 btn btn-outline-light">Entrar</button>
   ` 
 
   
 
-} */
+} 
 
 
 
 
-/* function validarInput(){ 
+ function nombreInput(){ 
   const nombre = document.getElementById("nombre").value;  
   nombre.length <= 2 ? style.innerHTML+=inputInvalido : main(nombre);
   setTimeout(() => {
@@ -47,10 +50,10 @@ function log (){
     }`;
   }, 900);
 
-  
+  cargarSS("Usuario", nombre);
 
 
-} */
+} 
 
 
 function main(nombre){
@@ -63,7 +66,7 @@ function main(nombre){
       }
     }, 600);
     
-   // setTimeout(() => {
+    setTimeout(() => {
       style.innerHTML = "";
       body.innerHTML= pagPrincipal;
       const title = document.getElementById("title");
@@ -72,7 +75,7 @@ function main(nombre){
        setInterval(() => {
       title.innerHTML = `  <h2 class="titulo my-4">${mensajesAleatorio(nombre)}</h2>`
         
-      //}, 9000); 
+      }, 9000); 
       
     
   }, 7000);
@@ -80,7 +83,6 @@ function main(nombre){
   
 }
 
-main();
 
 /* TENEMOS QUE TENER EN MEMORIA UN USUARIO INVITADO ok
 SI EL USUARIO INGRESA UNA SOLO LETRA INVALIDAR INPUT ok
@@ -95,4 +97,48 @@ function mensajesAleatorio(nombre){
   const item = array[randomIndex];
 
     return item;
+}
+
+function agregarNotas(){
+  const notasHechas = descargarLS("notas");
+  const tituloNota = document.getElementById("tituloNota").value || "Sin Titulo"; 
+  
+  
+  const importanciaNota = document.getElementById("importanciaNota").value || "Normal"; 
+  const notaTextArea = document.getElementById("notaTextArea").value || "Por aca esta vacio";
+  let usuario = descargarSS("Usuario")
+  var today = new Date();
+  
+  var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+  
+  const nota = new note(tituloNota,usuario,date,importanciaNota, false, notaTextArea); 
+  
+  notas.push(nota);
+  const notasFinales = [...notasHechas, ...notas]
+  
+  cargarLS("notas", notasFinales);
+
+  document.getElementById("tituloNota").value = "";
+  document.getElementById("importanciaNota").value ="";
+  document.getElementById("notaTextArea").value = "";
+}
+
+
+
+function cargarLS(clave,valor){
+  localStorage.setItem(clave,JSON.stringify(valor));
+}
+
+function descargarLS(clave){
+  const valor = JSON.parse(localStorage.getItem(clave));
+  return valor;
+}
+
+function cargarSS(clave,valor){
+  sessionStorage.setItem(clave,JSON.stringify(valor));
+}
+
+function descargarSS(clave){
+  const valor = JSON.parse(sessionStorage.getItem(clave));
+  return valor;
 }
