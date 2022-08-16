@@ -69,9 +69,14 @@ function main(nombre){
     setTimeout(() => {
       style.innerHTML = "";
       body.innerHTML= pagPrincipal;
-      
       const title = document.getElementById("title");
-    title.innerHTML = `  <h2 class="titulo my-4">¡Hola ${nombre}! Almacenaré tus notas.</h2>`
+      title.innerHTML = `  <h2 class="titulo my-4">Bienvenido ${nombre}</h2>`
+
+       setInterval(() => {
+      title.innerHTML = `  <h2 class="titulo my-4">${mensajesAleatorio(nombre)}</h2>`
+        
+      }, 9000); 
+      
     
   }, 7000);
 
@@ -84,6 +89,12 @@ SI EL USUARIO INGRESA UNA SOLO LETRA INVALIDAR INPUT ok
 CUANDO EL USUARIO INGRESA DOS PALABRAS INVALIDAR ok
 CUANDO EL USUARIO INGRESA UN VALOR CORRECTO CARGAR A LOCALSTORAGE ok
 
-
-
 */
+
+function mensajesAleatorio(nombre){
+  const array = [`Hola ${nombre}, almacenaré tus notas aca.`, `${nombre},no olvides más!`, `Notas`,`Hola, como estas? Dejame ayudarte.`, `No olvides darle al boton de play abajo.`]; 
+  const randomIndex = Math.floor(Math.random() * array.length);
+  const item = array[randomIndex];
+
+    return item;
+}
