@@ -71,10 +71,10 @@ function main(nombre){
       body.innerHTML= pagPrincipal;
       const title = document.getElementById("title");
       title.innerHTML = `  <h2 class="titulo my-4">Bienvenido ${nombre}</h2>`
+      renderizarNotas();
 
        setInterval(() => {
       title.innerHTML = `  <h2 class="titulo my-4">${mensajesAleatorio(nombre)}</h2>`
-        
       }, 9000); 
       
     
@@ -121,6 +121,36 @@ function agregarNotas(){
   document.getElementById("tituloNota").value = "";
   document.getElementById("importanciaNota").value ="";
   document.getElementById("notaTextArea").value = "";
+}
+
+
+function renderizarNotas(){
+  const notasHechas = descargarLS("notas");
+  
+  
+
+  let plantillaNota = "";
+
+ for (const nota of notasHechas){
+    plantillaNota+=`<a class="col-3 mx-5 text-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">${nota.nombre}</a>  
+
+    <div class="col-2 mx-4 text-light">
+      ${nota.fecha}
+    </div>
+    <div class="col-1 mx-4 text-light">
+      ${nota.usuario}
+    </div>
+    <div class="col-2  text-light text-center">
+      ${nota.importancia}
+    </div>
+    <div class="col-1  mb-2 mx-4 text-light text-center">
+      <a  onclick="eliminarNota(${nota.nombre}) "href="#"><img class="bandera" src="./Images/trash.svg" alt=""></a>
+    </div>
+  `
+  }
+
+  document.getElementById("contenedorNotas").innerHTML = plantillaNota;
+
 }
 
 

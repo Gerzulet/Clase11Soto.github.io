@@ -150,38 +150,25 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
   <div class="col border border-light ">
     <div class="row my-2 ">
       <div class="col-3  mx-5 text-light">
-        Nombre
+        <a href="#">Nombre</a>
       </div>
       <div class="col-2  mx-4 text-light">
-        Fecha
+      <a href="#" >Fecha</a>
       </div>
       <div class="col-1  mx-2 text-light">
-        Usuario
+      <a href="#">Usuario</a>
       </div>
       <div class="col-2  mx-4 text-light">
-        Importancia
+      <a href="#">Importancia</a>
       </div>
       <div class="col-1   text-light">
         
       </div>
 
 
-      <div id="notas" class="row my-3 overflow-auto">
+      <div id="contenedorNotas" class="row my-3 overflow-auto">
       
-      <a class="col-3 mx-5 text-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Clase de algebra</a>  
-
-        <div class="col-2 mx-4 text-light">
-          24/08/22
-        </div>
-        <div class="col-1 mx-4 text-light">
-          German
-        </div>
-        <div class="col-2  text-light text-center">
-          Alta
-        </div>
-        <div class="col-1  mx-4 text-light text-center">
-          <a  href="#"><img class="bandera" src="./Images/trash.svg" alt=""></a>
-        </div>
+      
       </div>
      
     
