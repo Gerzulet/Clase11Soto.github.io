@@ -207,8 +207,9 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
     <div class="col text-center my-5">
     <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><img class="bar" src="./Images/plus.svg" alt="Add"></a>
     </div>
-    <div class="col text-center my-5">
-    <a href="#"><img class="bar" src="./Images/trash.svg" alt=""></a>
+    <div class="col text-center my-5" >
+      <a href="#"><img onclick="trashDesarollo()" class="bar" src="./Images/trash.svg" alt=""></a>
+     <h5 id="mensajeDesarrollo" style="color:white; font-size: 10px; font-family: 'Courier New', Courier, monospace"><h5>
     </div>
     <div class="col text-center my-5 ">
 

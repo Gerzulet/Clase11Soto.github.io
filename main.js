@@ -202,7 +202,15 @@ function renderizarNotas(){
   document.getElementById("contenedorNotas").innerHTML = plantillaNota;
 
 }
+function trashDesarollo(){
+  const mensaje = document.getElementById("mensajeDesarrollo");
+  mensaje.innerText="En Desarrollo"; 
 
+  setTimeout(() => {
+  mensaje.innerText=""; 
+    
+  }, 2000);
+}
 function renderizarCanvas(id){
   const notasHechas = descargarLS("notas");
   console.log(notasHechas)
