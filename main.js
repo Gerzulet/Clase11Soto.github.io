@@ -23,7 +23,7 @@ log();
 function log (){
   
   body.innerHTML=`  <div id="inputLog" class="inputUsuario form__group field">
-  <input maxlength="10" type="input" class="form__field" placeholder="Usuario" name="name" id="nombre" required />
+  <input maxlength="9" type="input" class="form__field" placeholder="Usuario" name="name" id="nombre" required />
   <label for="name" class="form__label">Usuario</label>
   </div> 
   <button id="boton" onclick="nombreInput()" type="button" class="inputUsuario my-4 btn btn-outline-light">Entrar</button>
@@ -136,7 +136,7 @@ CUANDO EL USUARIO INGRESA UN VALOR CORRECTO CARGAR A LOCALSTORAGE ok
 */
 
 function mensajesAleatorio(nombre){
-  const array = [`Hola ${nombre}, almacenaré tus notas aca.`, `${nombre},no olvides más!`, `Notas`,`Hola, como estas? Dejame ayudarte.`, `No olvides darle al boton de play abajo.`, `Veras notas de varios usuarios aca abajo`]; 
+  const array = [`Hola ${nombre}, almacenaré tus notas aca.`, `${nombre},no olvides más!`, `Casilla de Notas`,`Hola, como estas? Dejame ayudarte.`, `No olvides darle al boton de play abajo.`, `Veras notas de varios usuarios aca abajo`]; 
   const randomIndex = Math.floor(Math.random() * array.length);
   const item = array[randomIndex];
 
@@ -157,15 +157,16 @@ function agregarNotas(){
   
   const nota = new note(id,tituloNota,usuario,date,importanciaNota,notaTextArea); 
   
-  notas.push(nota);
   
-  const notasFinales = [...notasHechas, ...notas]
+  const notasFinales = [...notasHechas, nota]
   cargarLS("notas", notasFinales);
   renderizarNotas();
   
   document.getElementById("tituloNota").value = "";
   document.getElementById("importanciaNota").value ="";
   document.getElementById("notaTextArea").value = "";
+
+
 }
 function eliminarNota(id){
   const notasHechas = descargarLS("notas") || [];
