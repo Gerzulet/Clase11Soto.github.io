@@ -26,10 +26,9 @@ function log (){
   <input maxlength="10" type="input" class="form__field" placeholder="Usuario" name="name" id="nombre" required />
   <label for="name" class="form__label">Usuario</label>
   </div> 
-  <button  onclick="nombreInput()" type="button" class="inputUsuario my-4 btn btn-outline-light">Entrar</button>
+  <button id="boton" onclick="nombreInput()" type="button" class="inputUsuario my-4 btn btn-outline-light">Entrar</button>
   ` 
 
-  
 
 } 
 

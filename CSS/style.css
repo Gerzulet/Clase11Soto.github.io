@@ -201,6 +201,12 @@ body {
   height: 200px;
 }
 
+#offcanvasExample {
+  background-color: black;
+  border-color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;

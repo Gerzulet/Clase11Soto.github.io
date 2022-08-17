@@ -211,7 +211,11 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
     <a href="#"><img class="bar" src="./Images/trash.svg" alt=""></a>
     </div>
     <div class="col text-center my-5 ">
-      <a href="#"><img class="bar" src="./Images/info.svg" alt=""></a>
+
+    <a type="button" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+    <img class="bar" src="./Images/info.svg" alt="">
+  </a>
+
       </div>
       <div class="col text-center my-5">
       <a  href="https://www.youtube.com/watch?v=mCdA4bJAGGk?rel=0&amp;autoplay=1" target="__blank"><img class="bar" src="./Images/play.svg"  alt="Video"></a>
@@ -229,7 +233,28 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
     
   </div>
 
+ 
 
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title text-light" id="offcanvasExampleLabel">Informacion</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <h2 class="text-light">Operadores logicos avanzados </h2> 
+    <section class="text-light"> 
+    Estos operadores pueden servir como herramientas mas eficientes al momento de crear estructuras de control. 
+    
+    Observando el codigo, tenemos diversas instancias en las cuales, evaluamos si un elemento es Null o undefined
+    y sin embargo, no queremos obtener un error por consola o un elemento equivoco, si no mas bien un mensaje predeterminado. 
+    
+    Este es el caso por ejemplo de los inputs generados en el usuario al agregar una nota, de estar vacios, no devuelven un valor undefined
+    o null, si no que una respuesta ya predeterminada. 
+
+    </section> 
+  </div>
+</div>
 
 <div class="offcanvas offcanvas-bottom text-center" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
   <div class="offcanvas-header">
