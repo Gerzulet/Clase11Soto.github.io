@@ -7,12 +7,12 @@ const notas  = [];
 
 
 class note {
-  constructor(nombre,usuario,fecha,importancia,flag,info) {
+  constructor(id,nombre,usuario,fecha,importancia,info) {
+    this.id=id;
     this.nombre = nombre;
     this.usuario = usuario;
     this.fecha = fecha;
     this.importancia = importancia;
-    this.flag = flag;
     this.info = info;
     
   }
@@ -33,7 +33,52 @@ function log (){
 
 } 
 
-
+function logout(){
+ 
+  style.innerHTML+=pagPrincipalDesvanecer;
+  
+  setTimeout(() => {
+    style.innerHTML=`body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-size: 1.5rem;
+    }
+    #salir{
+      -webkit-animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+              animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+    
+    
+    
+    
+    
+    @-webkit-keyframes fade-in {
+     0% {
+       opacity: 0;
+     }
+     100% {
+       opacity: 1;
+     }
+    }
+    @keyframes fade-in {
+     0% {
+       opacity: 0;
+     }
+     100% {
+       opacity: 1;
+     }
+    }
+    `;
+    body.innerHTML=` <h1 id="salir" class="text-light"> Gracias </div>` 
+    
+  }, 3000);
+  
+   
+  
+}
 
 
  function nombreInput(){ 
@@ -100,39 +145,45 @@ function mensajesAleatorio(nombre){
 }
 
 function agregarNotas(){
-  const notasHechas = descargarLS("notas");
+  const notasHechas = descargarLS("notas") || [];
   const tituloNota = document.getElementById("tituloNota").value || "Sin Titulo"; 
   
-  
   const importanciaNota = document.getElementById("importanciaNota").value || "Normal"; 
-  const notaTextArea = document.getElementById("notaTextArea").value || "Por aca esta vacio";
+  const notaTextArea = document.getElementById("notaTextArea").value || "¿Se le habrá olvidado poner algo?";
   let usuario = descargarSS("Usuario")
   var today = new Date();
-  
+  const id = notasHechas.length;
   var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
   
-  const nota = new note(tituloNota,usuario,date,importanciaNota, false, notaTextArea); 
+  
+  const nota = new note(id,tituloNota,usuario,date,importanciaNota,notaTextArea); 
   
   notas.push(nota);
-  const notasFinales = [...notasHechas, ...notas]
   
+  const notasFinales = [...notasHechas, ...notas]
   cargarLS("notas", notasFinales);
-
+  renderizarNotas();
+  
   document.getElementById("tituloNota").value = "";
   document.getElementById("importanciaNota").value ="";
   document.getElementById("notaTextArea").value = "";
 }
+function eliminarNota(id){
+  const notasHechas = descargarLS("notas") || [];
+  let pos = notasHechas.findIndex(el => el.id === id);
 
+  notasHechas.splice(pos, 1);
+  cargarLS("notas", notasHechas);
+  renderizarNotas();
+}
 
 function renderizarNotas(){
   const notasHechas = descargarLS("notas");
-  
-  
 
   let plantillaNota = "";
 
  for (const nota of notasHechas){
-    plantillaNota+=`<a class="col-3 mx-5 text-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">${nota.nombre}</a>  
+    plantillaNota+=`<a onclick="renderizarCanvas(${nota.id})" class="col-3 mx-5 text-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">${nota.nombre}</a>  
 
     <div class="col-2 mx-4 text-light">
       ${nota.fecha}
@@ -144,7 +195,7 @@ function renderizarNotas(){
       ${nota.importancia}
     </div>
     <div class="col-1  mb-2 mx-4 text-light text-center">
-      <a  onclick="eliminarNota(${nota.nombre}) "href="#"><img class="bandera" src="./Images/trash.svg" alt=""></a>
+      <a  onclick="eliminarNota(${nota.id}) "href="#"><img class="bandera" src="./Images/trash.svg" alt=""></a>
     </div>
   `
   }
@@ -153,8 +204,41 @@ function renderizarNotas(){
 
 }
 
+function renderizarCanvas(id){
+  const notasHechas = descargarLS("notas");
+  console.log(notasHechas)
+  const datos = notasHechas.find((el) =>  el.id == id);
+  
+    let plantillaNota=
+    `<div class="offcanvas-header">
+    <h5 class="offcanvas-title text-light" id="offcanvasTopLabel">${datos.nombre}
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+    <img class="bar mx-3" src="./Images/pen-fill.svg" alt="">
+    </button></h5>
+    
+
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row">
+      <div class="col"> 
+        <div class="row text-light m-3">Usuario: ${datos.usuario}</div> 
+        <div class="row text-light m-3">Importancia: ${datos.importancia}</div> 
+      </div>
+      <div class="col text-light text-center">${datos.info}</div>
+    </div>
+  </div>
+  `
+  
+
+  document.getElementById("offcanvasTop").innerHTML = plantillaNota;
 
 
+}
+
+function recogerNombre(nombre){
+  return nombre;
+}
 function cargarLS(clave,valor){
   localStorage.setItem(clave,JSON.stringify(valor));
 }

@@ -23,6 +23,10 @@ body {
 	        animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
+#salir
+  -webkit-animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
 
 
 @-webkit-keyframes fade-in {
@@ -135,12 +139,34 @@ let loginDesvanecer = `#inputLog {
 }
 `
 
+let pagPrincipalDesvanecer = `body {
+	-webkit-animation: fade-out 1s ease-out both;
+	        animation: fade-out 1s ease-out both;
+}
+
+ @-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+`
 let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
 <div class="row my-4 ">
   <div id="title" class="col border border-light text-light text-center">
   </div>
   <div class="col-1  mx-4 my-4">
-    <a href="#">
+    <a href="#" onclick="logout()">
       <img src="./Images/door-open.svg" alt="Logout" id="logout">
 
     </a>
@@ -199,27 +225,9 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
  
 </div>
 
-<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasTopLabel">El nombre del titulo
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
-    <img class="bar mx-3" src="./Images/pen-fill.svg" alt="">
-    </button></h5>
+  <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
     
-
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body">
-    <div class="row">
-      <div class="col"> 
-        <div class="row text-light m-3">Usuario</div> 
-        <div class="row text-light m-3">Importancia</div> 
-      </div>
-      <div class="col text-light text-center"> Form field </div>
-    </div>
-  </div>
-</div>
-
 
 
 
