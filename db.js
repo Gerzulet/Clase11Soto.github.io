@@ -214,7 +214,7 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
       <a href="#"><img class="bar" src="./Images/info.svg" alt=""></a>
       </div>
       <div class="col text-center my-5">
-      <a href="#"><img class="bar" src="./Images/play.svg" alt=""></a>
+      <a  href="https://www.youtube.com/watch?v=mCdA4bJAGGk?rel=0&amp;autoplay=1" target="__blank"><img class="bar" src="./Images/play.svg"  alt="Video"></a>
       </div>
       <div class="col text-center my-5">
         <img class="cat" src="./Images/cat.png" alt="">
