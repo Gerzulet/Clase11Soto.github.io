@@ -115,6 +115,8 @@ let inputInvalido = `
  }
 }
 
+
+
 `
 let loginDesvanecer = `#inputLog {
 	-webkit-animation: fade-out 1s ease-out both;
@@ -275,7 +277,7 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
   <div id="offcanvasBody" class="offcanvas-body small">
     <div class="row my-2">
       <div  class="form__group field col mx-1">
-        <input maxlength="16" type="input" class="form__field" placeholder="Titulo" name="name" id="tituloNota" required />
+        <input maxlength="20" type="input" class="form__field" placeholder="Titulo" name="name" id="tituloNota" required />
         <label for="name" class="form__label">Titulo</label>
     </div> 
   <div class="form__group field row mx-1">
@@ -288,8 +290,9 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
   </div>
   
 
-    <div class="mb-3">
-  <textarea  maxlength="100" class="form__field" id="notaTextArea" rows="3"></textarea>
+    <div class="mt-5">
+  <textarea  placeholder="Aca va tu nota" maxlength="100" class="form__field" id="notaTextArea" rows="3"></textarea>
+  
   </div>
   </div>
 </div>

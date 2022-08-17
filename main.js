@@ -2,6 +2,7 @@ const style = document.createElement("style");
 const body = document.getElementsByTagName("body")[0];
 style.innerHTML = `${animacionesDB} `; 
 document.head.appendChild(style);
+
 const notas  = [];
 
 
@@ -20,11 +21,13 @@ class note {
 
 log();
 
+//Funciones principales
+
 function log (){
   
   body.innerHTML=`  <div id="inputLog" class="inputUsuario form__group field">
-  <input maxlength="9" type="input" class="form__field" placeholder="Usuario" name="name" id="nombre" required />
-  <label for="name" class="form__label">Usuario</label>
+  <input maxlength="9" type="input" class="form__field" placeholder="No utilice espacios." name="name" id="nombre" required />
+  <label id="UsuarioLabel" for="name" class="form__label">Usuario</label>
   </div> 
   <button id="boton" onclick="nombreInput()" type="button" class="inputUsuario my-4 btn btn-outline-light">Entrar</button>
   ` 
@@ -82,7 +85,7 @@ function logout(){
 
  function nombreInput(){ 
   const nombre = document.getElementById("nombre").value;  
-  nombre.length <= 2 ? style.innerHTML+=inputInvalido : main(nombre);
+  nombre.length <= 2 ? inputNoValido() : hayEspacio(nombre) ? inputNoValido() : main(nombre);
   setTimeout(() => {
     style.innerHTML=`body {
       display: flex;
@@ -91,9 +94,9 @@ function logout(){
       align-items: center;
       min-height: 100vh;
       font-size: 1.5rem;
-    }`;
+    }
+   `;
   }, 900);
-
   cargarSS("Usuario", nombre);
 
 
@@ -128,27 +131,12 @@ function main(nombre){
 }
 
 
-/* TENEMOS QUE TENER EN MEMORIA UN USUARIO INVITADO ok
-SI EL USUARIO INGRESA UNA SOLO LETRA INVALIDAR INPUT ok
-CUANDO EL USUARIO INGRESA DOS PALABRAS INVALIDAR ok
-CUANDO EL USUARIO INGRESA UN VALOR CORRECTO CARGAR A LOCALSTORAGE ok
-
-*/
-
-function mensajesAleatorio(nombre){
-  const array = [`Hola ${nombre}, almacenaré tus notas aca.`, `${nombre},no olvides más!`, `Casilla de Notas`,`Hola, como estas? Dejame ayudarte.`, `No olvides darle al boton de play abajo.`, `Veras notas de varios usuarios aca abajo`]; 
-  const randomIndex = Math.floor(Math.random() * array.length);
-  const item = array[randomIndex];
-
-    return item;
-}
-
 function agregarNotas(){
   const notasHechas = descargarLS("notas") || [];
   const tituloNota = document.getElementById("tituloNota").value || "Sin Titulo"; 
   
   const importanciaNota = document.getElementById("importanciaNota").value || "Normal"; 
-  const notaTextArea = document.getElementById("notaTextArea").value || "¿Se le habrá olvidado poner algo?";
+  const notaTextArea = document.getElementById("notaTextArea").value || "¿Se le habrá olvidado poner algo? :|";
   let usuario = descargarSS("Usuario")
   var today = new Date();
   const id = notasHechas.length;
@@ -168,17 +156,12 @@ function agregarNotas(){
 
 
 }
-function eliminarNota(id){
-  const notasHechas = descargarLS("notas") || [];
-  let pos = notasHechas.findIndex(el => el.id === id);
 
-  notasHechas.splice(pos, 1);
-  cargarLS("notas", notasHechas);
-  renderizarNotas();
-}
 
 function renderizarNotas(){
   const notasHechas = descargarLS("notas");
+  
+  const demo = {id:0,nombre:"Fiesta del viernes",usuario:"Constanza", fecha:"2022/08/08", importancia:"Alta", info:"Chicos,no se olviden de comprar los regalos para este finde!"};
 
   let plantillaNota = "";
 
@@ -203,25 +186,16 @@ function renderizarNotas(){
   document.getElementById("contenedorNotas").innerHTML = plantillaNota;
 
 }
-function trashDesarollo(){
-  const mensaje = document.getElementById("mensajeDesarrollo");
-  mensaje.innerText="En Desarrollo"; 
 
-  setTimeout(() => {
-  mensaje.innerText=""; 
-    
-  }, 2000);
-}
+
 function renderizarCanvas(id){
   const notasHechas = descargarLS("notas");
-  console.log(notasHechas)
   const datos = notasHechas.find((el) =>  el.id == id);
   
     let plantillaNota=
     `<div class="offcanvas-header">
     <h5 class="offcanvas-title text-light" id="offcanvasTopLabel">${datos.nombre}
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
-    <img class="bar mx-3" src="./Images/pen-fill.svg" alt="">
     </button></h5>
     
 
@@ -242,6 +216,48 @@ function renderizarCanvas(id){
   document.getElementById("offcanvasTop").innerHTML = plantillaNota;
 
 
+}
+
+// Funciones complementarias 
+
+function hayEspacio(string) {
+  return string.indexOf(' ') >= 0;
+}
+
+function inputNoValido(){
+  style.innerHTML+=inputInvalido; 
+  document.getElementById("UsuarioLabel").innerHTML = "Ingrese un usuario sin espacios.";
+  setTimeout(() => {
+  document.getElementById("UsuarioLabel").innerHTML = "Usuario";
+    
+  }, 2000);
+}
+
+function mensajesAleatorio(nombre){
+  const array = [`Hola ${nombre}, almacenaré tus notas aca.`, `${nombre},no olvides más!`, `Casilla de Notas`,`Hola, como estas? Dejame ayudarte.`, `No olvides darle al boton de play abajo.`, `Veras notas de varios usuarios aca abajo`,  `Mira las notas que los demas dejaron.`]; 
+  const randomIndex = Math.floor(Math.random() * array.length);
+  const item = array[randomIndex];
+
+    return item;
+}
+
+function eliminarNota(id){
+  const notasHechas = descargarLS("notas") || [];
+  let pos = notasHechas.findIndex(el => el.id === id);
+
+  notasHechas.splice(pos, 1);
+  cargarLS("notas", notasHechas);
+  renderizarNotas();
+}
+
+function trashDesarollo(){
+  const mensaje = document.getElementById("mensajeDesarrollo");
+  mensaje.innerText="En Desarrollo"; 
+
+  setTimeout(() => {
+  mensaje.innerText=""; 
+    
+  }, 2000);
 }
 
 function recogerNombre(nombre){
