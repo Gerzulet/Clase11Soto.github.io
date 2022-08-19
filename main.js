@@ -86,8 +86,8 @@ function logout(){
   }, 2500);
   
   setTimeout(() => {
-    window.location.reload();
-  }, 6000);
+    history.go(0);
+  }, 5000);
    
   
 }
