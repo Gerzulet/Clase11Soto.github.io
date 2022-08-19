@@ -6,6 +6,11 @@ document.head.appendChild(style);
 const notas  = [];
 
 
+function enter(){
+  if (event.keyCode === 13) {
+    document.getElementById("boton").click();
+  }
+}
 
 class note {
   constructor(id,nombre,usuario,fecha,importancia,info) {
@@ -31,9 +36,11 @@ function log (){
   </div> 
   <button id="boton" onclick="nombreInput()" type="button" class="inputUsuario my-4 btn btn-outline-light">Entrar</button>
   ` 
-
+   body.addEventListener("keypress", enter)
 
 } 
+
+
 
 function logout(){
  
@@ -105,6 +112,8 @@ function logout(){
 
 function main(nombre){
   style.innerHTML+=loginDesvanecer;
+  body.removeEventListener("keypress",enter);
+
   setTimeout(() => {
     if (nombre[nombre.length-1]=="a"){
       body.innerHTML=`  <h1 style="font-family: "'Courier New', Courier, monospace" class="text-light" id="bienvenida"> Bienvenida, ${nombre}. <h1>
