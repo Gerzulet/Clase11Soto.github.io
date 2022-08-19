@@ -83,8 +83,11 @@ function logout(){
     `;
     body.innerHTML=` <h1 id="salir" class="text-light"> Gracias </div>` 
     
-  }, 3000);
+  }, 2500);
   
+  setTimeout(() => {
+    window.location.reload();
+  }, 6000);
    
   
 }
@@ -260,13 +263,11 @@ function eliminarNota(id){
 }
 
 function trashDesarollo(){
-  const mensaje = document.getElementById("mensajeDesarrollo");
-  mensaje.innerText="En Desarrollo"; 
-
-  setTimeout(() => {
-  mensaje.innerText=""; 
-    
-  }, 2000);
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong!',
+  })
 }
 
 function recogerNombre(nombre){
