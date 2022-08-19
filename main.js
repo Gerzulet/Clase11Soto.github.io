@@ -112,7 +112,7 @@ function logout(){
 
 function main(nombre){
   style.innerHTML+=loginDesvanecer;
-  body.removeEventListener("keypress",enter);
+  body.removeEventListener("keypress",enterLog);
 
   setTimeout(() => {
     if (nombre[nombre.length-1]=="a"){
