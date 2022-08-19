@@ -6,9 +6,9 @@ document.head.appendChild(style);
 const notas  = [];
 
 
-function enter(){
+function enterLog(){
   if (event.keyCode === 13) {
-    document.getElementById("boton").click();
+    document.getElementById("botonLog").click();
   }
 }
 
@@ -34,9 +34,9 @@ function log (){
   <input maxlength="9" type="input" class="form__field" placeholder="No utilice espacios." name="name" id="nombre" required />
   <label id="UsuarioLabel" for="name" class="form__label">Usuario</label>
   </div> 
-  <button id="boton" onclick="nombreInput()" type="button" class="inputUsuario my-4 btn btn-outline-light">Entrar</button>
+  <button id="botonLog" onclick="nombreInput()" type="button" class="inputUsuario my-4 btn btn-outline-light">Entrar</button>
   ` 
-   body.addEventListener("keypress", enter)
+   body.addEventListener("keypress", enterLog);
 
 } 
 
