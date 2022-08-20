@@ -2,7 +2,6 @@ const style = document.createElement("style");
 const body = document.getElementsByTagName("body")[0];
 style.innerHTML = `${animacionesDB} `; 
 document.head.appendChild(style);
-
 const notas  = [];
 
 
@@ -26,6 +25,9 @@ class note {
 
 log();
 
+
+
+
 //Funciones principales
 
 function log (){
@@ -43,52 +45,82 @@ function log (){
 
 
 function logout(){
+  style.innerHTML+=`.swa2-popup {
+    background-color:black;
+    border: 3px solid white;
+  }
+  .swal2-modal {
+    background-color:black;
+    border: 3px solid white;
+  }
+  .swal2-show{
+    background-color:black;
+    border: 3px solid white;
+  }
+
+
+ `
+  Swal.fire({
+    title: 'Estas seguro de que quieres salir??',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#1e1c10',
+    cancelButtonColor: '#1e1c10',
+    confirmButtonText: 'Si',
+    cancelButtonText: 'No'
+
+  }).then((result) => {
+    if (result.isConfirmed) {
+      
+
+      style.innerHTML+=pagPrincipalDesvanecer;
+  
+      setTimeout(() => {
+        style.innerHTML=`body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          font-size: 1.5rem;
+        }
+        #salir{
+          -webkit-animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+                  animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        }
+        
+        
+        
+        
+        
+        @-webkit-keyframes fade-in {
+         0% {
+           opacity: 0;
+         }
+         100% {
+           opacity: 1;
+         }
+        }
+        @keyframes fade-in {
+         0% {
+           opacity: 0;
+         }
+         100% {
+           opacity: 1;
+         }
+        }
+        `;
+        body.innerHTML=` <h1 id="salir" class="text-light"> Gracias </div>` 
+        
+      }, 2000);
+      
+      setTimeout(() => {
+        history.go(0);
+      }, 6000);
+       
+    }
+  })
  
-  style.innerHTML+=pagPrincipalDesvanecer;
-  
-  setTimeout(() => {
-    style.innerHTML=`body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      font-size: 1.5rem;
-    }
-    #salir{
-      -webkit-animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-              animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    }
-    
-    
-    
-    
-    
-    @-webkit-keyframes fade-in {
-     0% {
-       opacity: 0;
-     }
-     100% {
-       opacity: 1;
-     }
-    }
-    @keyframes fade-in {
-     0% {
-       opacity: 0;
-     }
-     100% {
-       opacity: 1;
-     }
-    }
-    `;
-    body.innerHTML=` <h1 id="salir" class="text-light"> Gracias </div>` 
-    
-  }, 2500);
-  
-  setTimeout(() => {
-    history.go(0);
-  }, 5000);
-   
   
 }
 
@@ -165,15 +197,14 @@ function agregarNotas(){
   document.getElementById("tituloNota").value = "";
   document.getElementById("importanciaNota").value ="";
   document.getElementById("notaTextArea").value = "";
-
+  minimizarAgregarNotas()
 
 }
 
 
 function renderizarNotas(){
-  const notasHechas = descargarLS("notas");
+  const notasHechas = descargarLS("notas"); 
   
-  const demo = {id:0,nombre:"Fiesta del viernes",usuario:"Constanza", fecha:"2022/08/08", importancia:"Alta", info:"Chicos,no se olviden de comprar los regalos para este finde!"};
 
   let plantillaNota = "";
 
@@ -246,7 +277,7 @@ function inputNoValido(){
 }
 
 function mensajesAleatorio(nombre){
-  const array = [`Hola ${nombre}, almacenaré tus notas aca.`, `${nombre},no olvides más!`, `Casilla de Notas`,`Hola, como estas? Dejame ayudarte.`, `No olvides darle al boton de play abajo.`, `Veras notas de varios usuarios aca abajo`,  `Mira las notas que los demas dejaron.`]; 
+  const array = [`Hola,almacenaré tus notas aca.`, `${nombre},no olvides más!`, `Casilla de Notas`,`Hola, como estas? Dejame ayudarte.`, `No olvides darle al boton de play abajo.`, `Veras notas de varios usuarios aca abajo`,  `Mira las notas que los demas dejaron.`]; 
   const randomIndex = Math.floor(Math.random() * array.length);
   const item = array[randomIndex];
 
@@ -262,23 +293,141 @@ function eliminarNota(id){
   renderizarNotas();
 }
 
-function trashDesarollo(){
+function enDesarollo(){
+  style.innerHTML+=`.swa2-popup {
+    background-color:black;
+    border: 3px solid white;
+  }
+  .swal2-modal {
+    background-color:black;
+    border: 3px solid white;
+  }
+  .swal2-show{
+    background-color:black;
+    border: 3px solid white;
+  }
+ `
   Swal.fire({
-    icon: 'error',
-    title: 'Oops...',
-    text: 'Something went wrong!',
+    title: 'En construccion!',
+    imageUrl: imagenAleatoria(),
+    imageWidth: 300,
+    imageHeight: 300,
+    background:'black',
+    width: 500, 
+    confirmButtonColor: '#000000'   
   })
 }
 
-function recogerNombre(nombre){
-  return nombre;
+function imagenAleatoria(){
+  const array = [`./Images/workercat1.jpg`, `./Images/workercat2.gif`, `./Images/workercat3.jpg`]; 
+  const randomIndex = Math.floor(Math.random() * array.length);
+  const item = array[randomIndex];
+
+    return item;
 }
+
+function canvasMinimze(){
+  document.getElementById("offcanvasExample").className = "offcanvas offcanvas-start hiding";
+    const offcanvasExample = document.getElementById('offcanvasExample');
+  offcanvasExample.classList.remove("show"); 
+  setTimeout(() => {
+    offcanvasExample.classList.remove("hiding"); 
+    
+  }, 500);
+  eliminarBackdrop()
+  const body = document.getElementById("body"); 
+  body.removeAttribute("style");
+
+
+}
+
+function mostrarInfo(){
+
+  document.getElementById("offcanvasExample").className = "offcanvas offcanvas-start show";
+  const backdrop = document.createElement("div"); 
+  backdrop.className="offcanvas-backdrop fade show"; 
+  document.body.append(backdrop);
+
+  document.body.addEventListener("click", () => {
+    document.getElementById("offcanvasExample").className = "offcanvas offcanvas-start hiding";
+    const offcanvasExample = document.getElementById('offcanvasExample');
+  offcanvasExample.classList.remove("show"); 
+  setTimeout(() => {
+    offcanvasExample.classList.remove("hiding"); 
+    
+  }, 500);
+  eliminarBackdrop()
+  const body = document.getElementById("body"); 
+  body.removeAttribute("style");
+})
+}
+
+function canvasNotas(){
+  document.getElementById("offcanvasBottom").className = "offcanvas offcanvas-bottom show";
+  const backdrop = document.createElement("div"); 
+  backdrop.className="offcanvas-backdrop fade show"; 
+  document.body.append(backdrop);
+
+
+
+
+}
+
+
+
+function minimzarCanvasTop(){
+  document.getElementById("offcanvasTop").className = "offcanvas offcanvas-top hiding";
+    const offcanvasTop = document.getElementById('offcanvasTop');
+  offcanvasTop.classList.remove("show"); 
+  setTimeout(() => {
+    offcanvasTop.classList.remove("hiding"); 
+    
+  }, 500);
+  eliminarBackdrop()
+  const body = document.getElementById("body"); 
+  body.removeAttribute("style");
+
+  document.body.addEventListener("click", () => {
+    document.getElementById("offcanvasTop").className = "offcanvas offcanvas-top hiding";
+    const offcanvasTop = document.getElementById('offcanvasTop');
+  offcanvasTop.classList.remove("show"); 
+  setTimeout(() => {
+    offcanvasTop.classList.remove("hiding"); 
+    
+  }, 500);
+  eliminarBackdrop()
+  const body = document.getElementById("body"); 
+  body.removeAttribute("style");
+})
+
+}
+
+
+function minimizarAgregarNotas(){
+    const offcanvasBottom = document.getElementById('offcanvasBottom');
+    offcanvasBottom.className = "offcanvas offcanvas-bottom hiding";
+  offcanvasBottom.classList.remove("show"); 
+  setTimeout(() => {
+    offcanvasBottom.classList.remove("hiding"); 
+    
+  }, 500);
+  eliminarBackdrop()
+  const body = document.getElementById("body"); 
+  body.removeAttribute("style");
+}
+
+function eliminarBackdrop(){
+  const backdrop = document.getElementsByClassName("offcanvas-backdrop")[0]; 
+  backdrop ? backdrop.remove() : console.log("offcanvas cerrado") 
+}
+// Funciones de Storage
+
 function cargarLS(clave,valor){
   localStorage.setItem(clave,JSON.stringify(valor));
 }
 
 function descargarLS(clave){
-  const valor = JSON.parse(localStorage.getItem(clave));
+  const valor = JSON.parse(localStorage.getItem(clave)) ?? [];
   return valor;
 }
 

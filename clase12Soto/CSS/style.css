@@ -201,21 +201,6 @@ body {
   height: 200px;
 }
 
-.offcanvas-body {
-  background-color: black;
-  border-color: white;
-  font-family: "Courier New", Courier, monospace;
-  height: 200px;
-}
-
-.offcanvas-header {
-  background-color: black;
-  border-color: white;
-  
-  font-family: "Courier New", Courier, monospace;
-  height: 80px;
-}
-
 #salir {
   -webkit-animation: fade-in 3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: fade-in 3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
