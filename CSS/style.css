@@ -1,3 +1,20 @@
+#offcanvasBottom {
+  background-color: #000000;
+  border-color: white;
+  font-family: "Courier New", Courier, monospace;
+  height: 400px;
+}
+
+#offcanvasExample {
+  background-color: #000000;
+  border-color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#formEnviar {
+  width: 400px;
+}
+
 .form__group {
   position: relative;
   padding: 15px 0 0;
@@ -111,8 +128,8 @@ body {
   margin: 10px;
 }
 
-.resumen {
-  height: 30em;
+.cajaresumen {
+  overflow-y: visible;
 }
 
 #filtro {
@@ -187,33 +204,11 @@ body {
   animation: fade-in 3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
-#offcanvasBottom {
-  background-color: black;
-  border-color: white;
-  font-family: "Courier New", Courier, monospace;
-  height: 400px;
-}
-
 #offcanvasTop {
   background-color: black;
   border-color: white;
   font-family: "Courier New", Courier, monospace;
   height: 200px;
-}
-
-.offcanvas-body {
-  background-color: black;
-  border-color: white;
-  font-family: "Courier New", Courier, monospace;
-  height: 200px;
-}
-
-.offcanvas-header {
-  background-color: black;
-  border-color: white;
-  
-  font-family: "Courier New", Courier, monospace;
-  height: 80px;
 }
 
 #salir {

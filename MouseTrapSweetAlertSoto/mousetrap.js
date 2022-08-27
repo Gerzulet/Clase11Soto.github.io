@@ -19,19 +19,15 @@ Mousetrap.bind('alt+esc', function() { logout(); });
 Mousetrap.bind('ctrl+enter', function() {
     agregarNotas() || console.log("Offcanvas cerrado");
     canvasMinimze();
-     
 });
 Mousetrap.bind('alt+a', function() {
-    
     mostrarInfo();
-     
+    
 });
 
-Mousetrap.bind('ctrl+space', function() { canvasNotas();  });
+Mousetrap.bind('ctrl+space', function() { canvasNotas(); });
 Mousetrap.bind('esc', function() { 
     minimizarAgregarNotas(); 
     canvasMinimze()
-    minimzarCanvasTop()
-    _saveDraft();
-    return false; });
+    minimzarCanvasTop()});
 

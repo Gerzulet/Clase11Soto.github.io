@@ -3,6 +3,24 @@ $secondary: #38ef7d;
 $white: #fff;
 $gray: #9b9b9b;
 
+#offcanvasBottom {
+  background-color: #000000;
+  border-color: white;
+  font-family:'Courier New', Courier, monospace; 
+  height: 400px;
+  
+}
+#offcanvasExample {
+  background-color: #000000;
+  border-color: white;
+  font-family:'Courier New', Courier, monospace; 
+  
+}
+
+#formEnviar {
+  width: 400px;
+
+}
 
 .form__group {
   position: relative;
@@ -103,8 +121,8 @@ body {
 
 }
 
-.resumen{
-  height: 30em;
+.cajaresumen{
+  overflow-y: visible;
 }
 
 #filtro {
@@ -160,13 +178,6 @@ body {
 }
 
 
-#offcanvasBottom {
-  background-color: black;
-  border-color: white;
-  font-family:'Courier New', Courier, monospace; 
-  height: 400px;
-  
-}
 
 #offcanvasTop {
   background-color: black;

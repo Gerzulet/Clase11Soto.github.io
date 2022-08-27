@@ -175,7 +175,7 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
   </div>
 </div>
 <div class="resumen row ">
-  <div class="col border border-light ">
+  <div class="col border border-light " id="cajaresumen">
     <div class="row my-2 ">
       <div class="col-3  mx-5 text-light">
         <a href="#">Nombre</a>
@@ -210,18 +210,18 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
     <a id="myOffCanvas" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><img  class="bar" id="addOffcanvas" src="./Images/plus.svg" alt="Add"></a>
     </div>
     <div class="col text-center my-5" >
-      <a href="#"><img onclick="enDesarollo()" class="bar" src="./Images/trash.svg" alt=""></a>
+      <a href="#"><img onclick="mostrarAtajos()" class="bar" src="./Images/keyboard-fill.svg" alt="atajos"></a>
      <h5 id="mensajeDesarrollo" style="color:white; font-size: 10px; font-family: 'Courier New', Courier, monospace"><h5>
     </div>
     <div class="col text-center my-5 ">
 
     <a type="button" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-    <img class="bar" src="./Images/info.svg" alt="">
+    <img class="bar" src="./Images/info.svg" alt="info">
   </a>
 
       </div>
       <div class="col text-center my-5">
-      <a  href="#" onclick="enDesarollo()"><img class="bar" src="./Images/shop.svg"  alt="Video"></a>
+      <a  href="#" onclick="enviarForm()"><img class="bar" src="./Images/envelope-plus.svg"  alt="mail"></a>
       </div>
       <div class="col text-center my-5">
         <img class="cat" src="./Images/cat.png" alt="">
@@ -241,17 +241,16 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title text-light" id="offcanvasExampleLabel">Mousetrap - Atajos de teclado</h5>
+    <h5 class="offcanvas-title text-light" id="offcanvasExampleLabel">Informacion</h5>
     <button type="button" class="btn btn-close btn-light text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <section class="text-light"> 
-    ALT + ESC --> SALIR DE PROGRAMA <br>
-    CTRL + 'ENTER' --> AGREGAR NOTA (DESPUES DE ABRIR MODULO)<br> 
-    ALT + 'A' --> ATAJOS DE TECLADO <br> 
-    CTRL + 'T' --> TRASHCAN (EN DESARROLLO) <br>
-    ALT + SHIFT + Q --> SHOP (EN DESARROLLO) <br>
-    ESC --> PARA CERRAR MODULOS
+    Programa para crear notas localmente, funcional con varios usuarios. 
+    Se añade uso de API de formspree. 
+    <br> <br> 
+    **Usar con navegador maximizado.
+    Actualmente esta pagina no admite su uso en dispositivos tales como tablets o celulares (en desarollo).
     
 
     </section> 

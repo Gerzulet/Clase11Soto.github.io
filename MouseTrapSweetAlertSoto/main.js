@@ -1,21 +1,3 @@
-//USAR API DE FORMSPREE 
-// SACAR EL BOYTON DE BASURERO Y CAMBIARLO POR EL DE LA API
-//ENTREGAR PROYECTO DE APIS 
-
-//CERAR FUNCION BUSCAR QUE TENGA UN BOTON FLOTANTE 
-//VER TEMA DE ACCESOS 
-//CAMBIAR INFORMACION 
-//MIENTRAS CREAR OTRO CANVAS PARA MOSTRAR LOS ATAJOS 
-// CREAR ATAJO PARA BUSQUEDA 
-//PROBRAR QUE FUNCION BIEN MOUSTRAP EN VARIOS NAVEGADORES 
-//CREAR DEMO 
-//PROBAR HACERLO RESPONSIVE 
-//SACAR TIENDA Y PONER MEJOR EL BOTON PARA ATAJOS 
-// CREAR FUNCINO PARA PERMITIR A USUARIOS ELIMINAR SUS NOTAS 
-
-
-
-
 const style = document.createElement("style"); 
 const body = document.getElementsByTagName("body")[0];
 style.innerHTML = `${animacionesDB} `; 
@@ -297,7 +279,7 @@ function inputNoValido(){
 }
 
 function mensajesAleatorio(nombre){
-  const array = [`Hola,almacenaré tus notas aca.`,`Mira los atajos con ALT + A`,`Casilla de Notas`,`Hola, como estas? Dejame ayudarte.`,  `Distintos usuarios, distintas notas`,  `Mira las notas que los demas dejaron.`]; 
+  const array = [`Hola,almacenaré tus notas aca.`,`Mira los atajos con ALT + A`, `${nombre},no olvides más!`, `Casilla de Notas`,`Hola, como estas? Dejame ayudarte.`,  `Veras notas de varios usuarios aca abajo`,  `Mira las notas que los demas dejaron.`]; 
   const randomIndex = Math.floor(Math.random() * array.length);
   const item = array[randomIndex];
 
@@ -415,88 +397,6 @@ function minimzarCanvasTop(){
   const body = document.getElementById("body"); 
   body.removeAttribute("style");
 })
-
-}
-
-function mostrarAtajos(){
-  style.innerHTML+=`.swa2-popup {
-    background-color:black;
-    border: 3px solid white;
-  }
-  .swal2-modal {
-    background-color:black;
-    border: 3px solid white;
-  }
-  .swal2-show{
-    background-color:black;
-    border: 3px solid white;
-  }
- `
-  
-  Swal.fire({
-    
-    title: '<strong>HTML <u>Atajos</u></strong>',
-    icon: 'info',
-    
-    html:
-      ` ALT + ESC --> SALIR DE PROGRAMA <br>
-      CTRL + 'ENTER' --> AGREGAR NOTA (DESPUES DE ABRIR MODULO)<br> 
-      ALT + 'A' --> ATAJOS DE TECLADO <br> 
-      CTRL + 'T' --> TRASHCAN (EN DESARROLLO) <br>
-      ALT + SHIFT + Q --> SHOP (EN DESARROLLO) <br>
-      ESC --> PARA CERRAR MODULOS
-      `,
-    focusConfirm: false,
-    confirmButtonText:
-      '<i class="fa fa-thumbs-up"></i> Genial!',
-    confirmButtonAriaLabel: 'Thumbs up, great!',
-    confirmButtonColor: '#000000'   
-    
-  })
-}
-
-function enviarForm(){
-  style.innerHTML+=`.swa2-popup {
-    background-color:black;
-    border: 3px solid white;
-  }
-  .swal2-modal {
-    background-color:black;
-    border: 3px solid white;
-  }
-  .swal2-show{
-    background-color:black;
-    border: 3px solid white;
-  }
- `
-
-   Swal.fire({
-    showConfirmButton: false,
-    title: 'Contactame!',
-    html:
-      `<div id="offcanvasExample">
-      <form class="form__group" id="formEnviar" 
-      action="https://formspree.io/f/xjvzkpvp"
-      method="POST"
-    >
-      <label class="text-light">
-        Tu Mail:
-        <input class="form__field" style="font-size: 20px" type="email" name="email">
-      </label>
-      <label>
-      <textarea style="height:300px;width:400px; font-size: 15px; " class="form__field mt-2" name="message"></textarea>
-      </label>
-      <br>
-      <button  type="submit" class=" btn btn-dark my-4">Enviar</button>
-
-    </form>
-    </div>`,
-    
-  })
-  
-}
-
-function toast(){
 
 }
 function minimizarAgregarNotas(){

@@ -207,10 +207,10 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
   </div >
   <div class="col-1 border border-light mx-4 fixed-right ">
     <div class="col text-center my-5">
-    <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><img class="bar" src="./Images/plus.svg" alt="Add"></a>
+    <a id="myOffCanvas" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><img  class="bar" id="addOffcanvas" src="./Images/plus.svg" alt="Add"></a>
     </div>
     <div class="col text-center my-5" >
-      <a href="#"><img onclick="trashDesarollo()" class="bar" src="./Images/trash.svg" alt=""></a>
+      <a href="#"><img onclick="enDesarollo()" class="bar" src="./Images/trash.svg" alt=""></a>
      <h5 id="mensajeDesarrollo" style="color:white; font-size: 10px; font-family: 'Courier New', Courier, monospace"><h5>
     </div>
     <div class="col text-center my-5 ">
@@ -221,7 +221,7 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
 
       </div>
       <div class="col text-center my-5">
-      <a  href="https://www.youtube.com/watch?v=mCdA4bJAGGk?rel=0&amp;autoplay=1" target="__blank"><img class="bar" src="./Images/play.svg"  alt="Video"></a>
+      <a  href="#" onclick="enDesarollo()"><img class="bar" src="./Images/shop.svg"  alt="Video"></a>
       </div>
       <div class="col text-center my-5">
         <img class="cat" src="./Images/cat.png" alt="">
@@ -241,19 +241,18 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title text-light" id="offcanvasExampleLabel">Informacion</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <h5 class="offcanvas-title text-light" id="offcanvasExampleLabel">Mousetrap - Atajos de teclado</h5>
+    <button type="button" class="btn btn-close btn-light text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <h2 class="text-light">Operadores logicos avanzados </h2> 
     <section class="text-light"> 
-    Estos operadores pueden servir como herramientas mas eficientes al momento de crear estructuras de control. 
+    ALT + ESC --> SALIR DE PROGRAMA <br>
+    CTRL + 'ENTER' --> AGREGAR NOTA (DESPUES DE ABRIR MODULO)<br> 
+    ALT + 'A' --> ATAJOS DE TECLADO <br> 
+    CTRL + 'T' --> TRASHCAN (EN DESARROLLO) <br>
+    ALT + SHIFT + Q --> SHOP (EN DESARROLLO) <br>
+    ESC --> PARA CERRAR MODULOS
     
-    Observando el codigo, tenemos diversas instancias en las cuales, evaluamos si un elemento es Null o undefined
-    y sin embargo, no queremos obtener un error por consola o un elemento equivoco, si no mas bien un mensaje predeterminado. 
-    
-    Este es el caso por ejemplo de los inputs generados en el usuario al agregar una nota, de estar vacios, no devuelven un valor undefined
-    o null, si no que una respuesta ya predeterminada. 
 
     </section> 
   </div>
@@ -269,7 +268,7 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
     </button></h5>
     
     <button  type="button" class="btn-close mx-2" data-bs-dismiss="offcanvas" aria-label="Close">
-    <img class="bar " src="./Images/trash.svg" alt="">
+    <img onclick="minimizarAgregarNotas()" class="bar " src="./Images/trash.svg" alt="">
     
     
     </button>
@@ -277,11 +276,11 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
   <div id="offcanvasBody" class="offcanvas-body small">
     <div class="row my-2">
       <div  class="form__group field col mx-1">
-        <input maxlength="20" type="input" class="form__field" placeholder="Titulo" name="name" id="tituloNota" required />
+        <input maxlength="25" type="input" class="form__field mousetrap" placeholder="Titulo" name="name" id="tituloNota" required />
         <label for="name" class="form__label">Titulo</label>
     </div> 
   <div class="form__group field row mx-1">
-        <select class="form__field" id="importanciaNota" required>
+        <select class="form__field mousetrap" id="importanciaNota" required>
           <option selected disabled value="">Importancia</option>
           <option>Alta</option>
           <option>Normal</option>
@@ -290,8 +289,8 @@ let pagPrincipal = ` <div id="pagPrincipal" class="container  ">
   </div>
   
 
-    <div class="mt-5">
-  <textarea  placeholder="Aca va tu nota" maxlength="100" class="form__field" id="notaTextArea" rows="3"></textarea>
+    <div class="mt-5 ">
+  <textarea   placeholder="Aca va tu nota" maxlength="130" class="form__field mousetrap" id="notaTextArea" rows="3"></textarea>
   
   </div>
   </div>
