@@ -296,8 +296,28 @@ function inputNoValido(){
   }, 2000);
 }
 
-function mensajesAleatorio(nombre){
-  const array = [`Hola,almacenaré tus notas aca.`,`Mira los atajos con ALT + A`,`Casilla de Notas`,`Hola, como estas? Dejame ayudarte.`,  `Distintos usuarios, distintas notas`,  `Mira las notas que los demas dejaron.`]; 
+function fetching(){
+  const arrayDatos=[];
+  fetch("/mensajes.JSON")
+  .then ((respuesta) => respuesta.json())
+  .then ((data) => {
+    if(typeof(data) === "string"){data = JSON.parse(data)}
+    else
+    data.forEach(function(item){
+      
+      arrayDatos.push(item.mensaje);
+           });
+  
+  cargarLS("mensajes", arrayDatos);         
+  });
+}
+
+fetching();
+
+
+
+function mensajesAleatorio(){
+  const array = descargarLS("mensajes"); 
   const randomIndex = Math.floor(Math.random() * array.length);
   const item = array[randomIndex];
 
